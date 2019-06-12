@@ -6,7 +6,9 @@ import API from "../../Utils/API";
 class Info extends React.Component {
   state = {
     search: "",
-    statsArray: []
+    statsArray: [],
+    symbol: "",
+    id: ""
   };
 
   getStockInfo = () => {
@@ -15,7 +17,16 @@ class Info extends React.Component {
       symbol: this.state.search,
       days: 30
     };
-    API.getStockInfo(stockQuery);
+    API.getStockInfo(stockQuery).then(res => {
+      console.log(res);
+      this.setState({
+        ...this.state,
+        statsArray: res.data.stats,
+        symbol: res.data.symbol,
+        id: res.data._id
+      });
+    });
+    console.log(this.state);
   };
 
   updateSearch = e => {

@@ -48,7 +48,7 @@ module.exports = {
           )
           .then(function(dbStock) {
             console.log(`${symbol} was created!`);
-            return dbStock;
+            res.json(dbStock);
           })
           .catch(err => {
             console.log(err);
