@@ -2,17 +2,17 @@ const moment = require("moment");
 const stockSymbol = require("../models/stockSymbol");
 moment().format();
 
-module.exports = {
-  getStockInfo: function(req, res) {
-    const Alpaca = require("@alpacahq/alpaca-trade-api");
+module.exports = function(app) {
+  const Alpaca = require("@alpacahq/alpaca-trade-api");
 
-    const alpaca = new Alpaca({
-      keyID: process.env.APCA_API_KEY_ID,
-      secretKey: process.env.APCA_API_SECRET_KEY,
-      paper: true
-    });
+  const alpaca = new Alpaca({
+    keyID: process.env.APCA_API_KEY_ID,
+    secretKey: process.env.APCA_API_SECRET_KEY,
+    paper: true
+  });
 
-    const symbol = req.params.symbol;
+  app.get("/prices", (req, res) => {
+    const symbol = req.body.symbol;
     const days = req.body.days;
     const start = req.body.start;
     const end = req.body.end;
@@ -55,5 +55,5 @@ module.exports = {
           });
         console.log(statsArray);
       });
-  }
+  });
 };
