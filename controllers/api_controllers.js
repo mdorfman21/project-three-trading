@@ -1,6 +1,8 @@
 const moment = require("moment");
 const stockSymbol = require("../models/stockSymbol");
 moment().format();
+const cheerio = require("cheerio");
+const axios = require("axios");
 
 module.exports = {
   getStockInfo: function(req, res) {
@@ -54,6 +56,18 @@ module.exports = {
             console.log(err);
           });
         console.log(statsArray);
+      });
+  },
+
+  getStockNews: function(req, res) {
+    const symbol = req.params.symbol;
+    axios
+      .get(`https://finance.yahoo.com/quote/${symbol}/news?p=${symbol}`)
+      .then(response => {
+        const $ = cheerio.load(response.data);
+        $("<li>").each((i, element) => {
+          console.log(element);
+        });
       });
   }
 };
