@@ -3,7 +3,7 @@ import Correlate from "../../Utils/correlation_function";
 import Form from "../../components/Form/index";
 
 class Pairs extends React.Component {
-  state = { search: "" };
+  state = { stockOne: "", stockTwo: "" };
 
   onInputChange = e => {
     const value = e.target.value;
