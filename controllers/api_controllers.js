@@ -61,13 +61,13 @@ module.exports = {
 
   getStockNews: function(req, res) {
     const symbol = req.params.symbol;
-    axios
-      .get(`https://finance.yahoo.com/quote/${symbol}/news?p=${symbol}`)
-      .then(response => {
-        const $ = cheerio.load(response.data);
-        $("<li>").each((i, element) => {
-          console.log(element);
-        });
+    const urlRequest = `https://finance.yahoo.com/quote/${symbol}/news?p=${symbol}`;
+    axios.get(urlRequest).then(response => {
+      const $ = cheerio.load(response.data);
+
+      $(".js-stream-content").each((i, element) => {
+        console.log(element);
       });
+    });
   }
 };
