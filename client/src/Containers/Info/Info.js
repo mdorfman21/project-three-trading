@@ -8,14 +8,15 @@ class Info extends React.Component {
     search: "",
     statsArray: [],
     symbol: "",
-    id: ""
+    id: "",
+    days: 10
   };
 
   getStockInfo = () => {
     console.log(this.state);
     const stockQuery = {
       symbol: this.state.search,
-      days: 30
+      days: this.state.days
     };
     API.getStockInfo(stockQuery).then(res => {
       console.log(res);
@@ -41,6 +42,7 @@ class Info extends React.Component {
     return (
       <div>
         <Form name="search" onChange={this.updateSearch} />
+        <Form name="days" onChange={this.updateSearch} />
         <Button name="check me" onClick={this.getStockInfo} />
       </div>
     );
