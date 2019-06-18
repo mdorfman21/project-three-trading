@@ -1,11 +1,10 @@
 import React from "react";
 import { render } from "react-dom";
 import Highcharts from "highcharts";
-import Stockchart from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import _ from "lodash";
 
-class Chart extends React.Component {
+class PairsChart extends React.Component {
   state = {
     chartOptions: {
       title: {
@@ -70,10 +69,10 @@ class Chart extends React.Component {
 
     return (
       <div>
-        <HighchartsReact highcharts={Stockchart} options={chartOptions} />
+        <HighchartsReact highcharts={Highcharts} options={chartOptions} />
       </div>
     );
   }
 }
 
-export default Chart;
+export default PairsChart;

@@ -5,6 +5,7 @@ import Button from "../../components/Button";
 import API from "../../Utils/API";
 import { promises } from "fs";
 import PairsChart from "../../components/Highcharts";
+import SingleChart from "../../components/SingleChart";
 
 class Pairs extends React.Component {
   state = {
@@ -133,6 +134,11 @@ class Pairs extends React.Component {
           dataTwo={this.state.stockTwoPriceRelative}
           stockOne={this.state.stockOne}
           stockTwo={this.state.stockTwo}
+        />
+        <SingleChart
+          categories={this.state.stockOneDays}
+          dataOne={this.state.stockOneStats}
+          stockOne={this.state.stockOne}
         />
         {this.state.correlation !== 0 ? (
           <h4>
