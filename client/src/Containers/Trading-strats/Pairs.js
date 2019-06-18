@@ -140,6 +140,11 @@ class Pairs extends React.Component {
           dataOne={this.state.stockOneStats}
           stockOne={this.state.stockOne}
         />
+        <SingleChart
+          categories={this.state.stockTwoDays}
+          dataOne={this.state.stockTwoStats}
+          stockOne={this.state.stockTwo}
+        />
         {this.state.correlation !== 0 ? (
           <h4>
             Correlation coefficient between {this.state.stockOne} and{" "}
