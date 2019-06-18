@@ -9,12 +9,9 @@ class App extends Component {
   render() {
     return (
       <div>
-<<<<<<< HEAD
         <Pairs />
-=======
         <LoginButton />
         <WebScraper />
->>>>>>> 0a84f7b0dea72839cc17f9844539b7d2085b2c60
       </div>
     );
   }
