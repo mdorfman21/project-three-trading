@@ -30,6 +30,13 @@ class Info extends React.Component {
     console.log(this.state);
   };
 
+  getStockStats = () => {
+    const symbol = this.state.search;
+    API.getStockStats(symbol).then(res => {
+      console.log(res);
+    });
+  };
+
   updateSearch = e => {
     const name = e.target.name;
     const value = e.target.value.toUpperCase();
@@ -44,6 +51,7 @@ class Info extends React.Component {
         <Form name="search" onChange={this.updateSearch} />
         <Form name="days" onChange={this.updateSearch} />
         <Button name="check me" onClick={this.getStockInfo} />
+        <Button name="stock stats scraper" onClick={this.getStockStats} />
       </div>
     );
   }

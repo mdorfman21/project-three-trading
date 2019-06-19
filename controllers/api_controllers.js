@@ -69,5 +69,28 @@ module.exports = {
         console.log(element);
       });
     });
+  },
+
+  getStockStats: function(req, res) {
+    const symbol = req.params.symbol;
+    const urlRequest = `https://finance.yahoo.com/quote/${symbol}/key-statistics?p=${symbol}`;
+
+    axios.get(urlRequest).then(response => {
+      const $ = cheerio.load(response.data);
+      // console.log($.html());
+
+      var dataObject = {};
+      var datas = [];
+      $("td").each((i, element) => {
+        if ($(element).hasClass("Ta(end)")) {
+          dataObject.value = $(element).text();
+          datas.push(dataObject);
+          dataObject = {};
+        } else {
+          dataObject.name = $(element).text();
+        }
+      });
+      console.log(datas);
+    });
   }
 };
