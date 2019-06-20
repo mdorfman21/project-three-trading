@@ -3,6 +3,7 @@ const stockSymbol = require("../models/stockSymbol");
 moment().format();
 const cheerio = require("cheerio");
 const axios = require("axios");
+const stockInfo = require("../models/StockInfo");
 
 module.exports = {
   getStockInfo: function(req, res) {
@@ -68,6 +69,38 @@ module.exports = {
       $(".js-stream-content").each((i, element) => {
         console.log(element);
       });
+    });
+  },
+
+  getStockStats: function(req, res) {
+    const symbol = req.params.symbol;
+    const urlRequest = `https://finance.yahoo.com/quote/${symbol}/key-statistics?p=${symbol}`;
+
+    axios.get(urlRequest).then(response => {
+      const $ = cheerio.load(response.data);
+      // console.log($.html());
+
+      var dataObject = {};
+      var datas = [];
+      $("td").each((i, element) => {
+        if ($(element).hasClass("Ta(end)")) {
+          dataObject.value = $(element).text();
+          datas.push(dataObject);
+          dataObject = {};
+        } else {
+          dataObject.name = $(element).text();
+        }
+      });
+      console.log(datas);
+      stockInfo
+        .findOneAndUpdate(
+          { symbol },
+          { symbol, stats: datas },
+          { upsert: true }
+        )
+        .then(function(dbStock) {
+          res.json(dbStock);
+        });
     });
   }
 };

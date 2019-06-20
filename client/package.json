@@ -6,13 +6,10 @@
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "@alpacahq/alpaca-trade-api": "^1.0.3",
-<<<<<<< HEAD
     "highcharts": "^7.1.2",
     "highcharts-react-official": "^2.2.2",
     "lodash": "^4.17.11",
-=======
     "auth0-js": "^9.10.4",
->>>>>>> 0a84f7b0dea72839cc17f9844539b7d2085b2c60
     "moment": "^2.24.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",

@@ -69,7 +69,7 @@ export default {
       const standardDeviation =
         standardDeviationArray.reduce(Correlate.getSum) / 20;
       console.log("sigma:", standardDeviation);
-      return standardDeviation;
+      return Math.pow(standardDeviation, 0.5);
     }
   }
 };

@@ -12,6 +12,7 @@ class App extends Component {
         <Pairs />
         <LoginButton />
         <WebScraper />
+        {/* <Info /> */}
       </div>
     );
   }
