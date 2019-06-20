@@ -3,6 +3,7 @@ const stockSymbol = require("../models/stockSymbol");
 moment().format();
 const cheerio = require("cheerio");
 const axios = require("axios");
+const stockInfo = require("../models/StockInfo");
 
 module.exports = {
   getStockInfo: function(req, res) {
@@ -91,6 +92,15 @@ module.exports = {
         }
       });
       console.log(datas);
+      stockInfo
+        .findOneAndUpdate(
+          { symbol },
+          { symbol, stats: datas },
+          { upsert: true }
+        )
+        .then(function(dbStock) {
+          res.json(dbStock);
+        });
     });
   }
 };
