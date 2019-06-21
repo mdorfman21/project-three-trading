@@ -1,0 +1,27 @@
+footer {
+  min-height: 12em;
+  margin-top: 0;
+}
+.footer-brand {
+  text-align: center;
+}
+
+.footer-links {
+  width: 100%;
+  list-style: none;
+  margin-right: 13em;
+}
+.footer-links li {
+  text-align: left;
+}
+.footer-links li a {
+  text-decoration: none;
+  color: #fff;
+}
+.footer-links li a:hover {
+  text-decoration: underline;
+  color: rgb(158, 249, 132);
+}
+.copyright {
+  color: rgb(174, 237, 135);
+}
