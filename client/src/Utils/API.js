@@ -7,5 +7,9 @@ export default {
 
   getStockNews: function(symbol) {
     return axios.get(`/scrape/${symbol}`);
+  },
+
+  getStockStats: function(symbol) {
+    return axios.get(`/info/${symbol}`);
   }
 };
