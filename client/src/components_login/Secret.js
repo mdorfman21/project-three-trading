@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import App from "../App";
 import Auth from "../Utils/Auth";
+import LoginButton from "../components/LoginButton";
+import Nav from "../components/Nav/index";
 
 const style = {
   backgroundColor: "#f8f8ff"
@@ -14,6 +16,7 @@ export default class Secret extends Component {
   render() {
     return (
       <div style={style}>
+        <Nav />
         Secret area
         <br />
         Jump back to <a href="/">home</a>
@@ -22,7 +25,7 @@ export default class Secret extends Component {
         Hello {username}
         <br />
         <img src={proPic} style={{ width: "100px", height: "100px" }} />
-        <App />
+        //Display favorites
       </div>
     );
   }
