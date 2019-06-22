@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import App from "../App";
+import Auth from "../Utils/Auth";
+
+const auth = new Auth();
 
 export default class Secret extends Component {
   render() {
@@ -9,7 +12,8 @@ export default class Secret extends Component {
         <br />
         Jump back to <a href="/">home</a>
         <br />
-        {/* <button onClick={this.props.auth.logout}>log out</button> */}
+        {/* <button>log out</button> */}
+        <button onClick={auth.logout}>log out</button>
         <App />
       </div>
     );
