@@ -1,5 +1,5 @@
 import auth0 from "auth0-js";
-// import jwtDecode from "jwt-decode";
+import jwtDecode from "jwt-decode";
 
 const LOGIN_SUCCESS_PAGE = "/secret";
 const LOGIN_FAILURE_PAGE = "/";
@@ -51,11 +51,11 @@ export default class Auth {
     window.location.pathname = LOGIN_FAILURE_PAGE;
   }
 
-  // getProfile() {
-  //   if (localStorage.getItem("id_token")) {
-  //     return jwtDecode(localStorage.getItem("id_token"));
-  //   } else {
-  //     return {};
-  //   }
-  // }
+  getProfile() {
+    if (localStorage.getItem("id_token")) {
+      return jwtDecode(localStorage.getItem("id_token"));
+    } else {
+      return {};
+    }
+  }
 }
