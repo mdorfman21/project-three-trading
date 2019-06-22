@@ -4,6 +4,7 @@ import Auth from "../Utils/Auth";
 
 const auth = new Auth();
 let username = auth.getProfile().given_name || "user";
+let proPic = auth.getProfile().picture;
 
 export default class Secret extends Component {
   render() {
@@ -15,6 +16,9 @@ export default class Secret extends Component {
         <br />
         <hr />
         Hello {username}
+        <br />
+        <img src={proPic} style={{ width: "100px", height: "100px" }} />
+        <br />
         {/* <button>log out</button> */}
         <button onClick={auth.logout}>log out</button>
         <App />
