@@ -6,6 +6,7 @@ import API from "../../Utils/API";
 import { promises } from "fs";
 import PairsChart from "../../components/Highcharts";
 import SingleChart from "../../components/SingleChart";
+import SpreadChart from "../../components/SpreadChart";
 
 class Pairs extends React.Component {
   state = {
@@ -134,6 +135,13 @@ class Pairs extends React.Component {
           dataTwo={this.state.stockTwoPriceRelative}
           stockOne={this.state.stockOne}
           stockTwo={this.state.stockTwo}
+        />
+        <SpreadChart
+          categories={this.state.stockOneDays}
+          dataOne={this.state.stockOneStats}
+          dataTwo={this.state.stockTwoStats}
+          stockOne={this.state.stockOne}
+          stockTwo={this.state.stocktwo}
         />
         <SingleChart
           categories={this.state.stockOneDays}

@@ -71,5 +71,12 @@ export default {
       console.log("sigma:", standardDeviation);
       return Math.pow(standardDeviation, 0.5);
     }
+  },
+
+  SpreadRelationArray: function(arrayOne, arrayTwo) {
+    const spreadArray = arrayOne.map((price, index) => {
+      return Math.abs((price - arrayTwo[index]) / price);
+    });
+    return spreadArray;
   }
 };
