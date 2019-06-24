@@ -1,0 +1,25 @@
+.pageTitle {
+  text-align: center;
+}
+
+.favorites {
+  overflow: scroll;
+}
+
+.favStockList {
+  display: flex;
+  margin-right: .5em;
+}
+.favStock {
+  float: left;
+  margin-right: .5em;
+  margin-left: .5em;
+  font-size: .9em;
+}
+
+.colTitle {
+  text-align: center;
+  font-weight: bold;
+  border-bottom: lightgray 1px solid;
+  font-family: monospace;
+}
