@@ -7,6 +7,7 @@ import { promises } from "fs";
 import PairsChart from "../../components/Highcharts";
 import SingleChart from "../../components/SingleChart";
 import SpreadChart from "../../components/SpreadChart";
+import GivenPairs from "../../components/GivenPairs";
 
 class Pairs extends React.Component {
   state = {
@@ -19,7 +20,8 @@ class Pairs extends React.Component {
     stockOneDays: [],
     stockTwoDays: [],
     stockOnePriceRelative: [],
-    stockTwoPriceRelative: []
+    stockTwoPriceRelative: [],
+    givenPairs: []
   };
 
   onInputChange = e => {
@@ -113,6 +115,14 @@ class Pairs extends React.Component {
     }
   };
 
+  componentDidMount() {
+    console.log(this.state);
+    API.getGivenPairs().then(res => {
+      console.log("looking for this!!!!", res.data);
+      this.setState({ ...this.state, givenPairs: res.data });
+    });
+  }
+
   render() {
     console.log("CURRENT RENDER STATE DEBUG:", this.state);
     return (
@@ -129,6 +139,15 @@ class Pairs extends React.Component {
         />
         <Button name="click for pairs" onClick={this.getDataForPairs} />
         <Button name="correlate" onClick={this.correlate} />
+        {this.state.givenPairs !== 0
+          ? this.state.givenPairs.map(pair => (
+              <GivenPairs
+                correlations={pair.correlations}
+                stockOne={pair.symbolGroup[0]}
+                stockTwo={pair.symbolGroup[1]}
+              />
+            ))
+          : ""}
         <PairsChart
           categories={this.state.stockOneDays}
           dataOne={this.state.stockOnePriceRelative}

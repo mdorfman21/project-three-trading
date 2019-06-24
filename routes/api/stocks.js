@@ -8,4 +8,6 @@ router
   })
   .post(stockController.getStockInfo);
 
+router.route("/given/pairs").get(stockController.getGivenPairs);
+
 module.exports = router;
