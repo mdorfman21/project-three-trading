@@ -114,14 +114,6 @@ class Pairs extends React.Component {
     }
   };
 
-  componentDidMount() {
-    console.log(this.state);
-    API.getGivenPairs().then(res => {
-      console.log("looking for this!!!!", res.data);
-      this.setState({ ...this.state, givenPairs: res.data });
-    });
-  }
-
   render() {
     console.log("CURRENT RENDER STATE DEBUG:", this.state);
     return (

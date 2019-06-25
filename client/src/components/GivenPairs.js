@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../Utils/API";
 
-function GivenPairs(props) {
+function GivenPairs() {
   const [givenPairs, setGivenPairs] = useState([]);
 
   useEffect(() => {

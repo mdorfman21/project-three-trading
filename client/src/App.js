@@ -5,16 +5,18 @@ import Homepage from "./Containers/HomePage/HomePage";
 import Pairs from "./Containers/Trading-strats/Pairs";
 import "./App.css";
 import LoginButton from "./components/LoginButton";
+import GivenPairs from "./components/GivenPairs";
 
 class App extends Component {
   render() {
     return (
       <div>
         {/* <Homepage /> */}
-        <Pairs />
+        {/* <Pairs />
         <LoginButton />
-        <WebScraper />
+        <WebScraper /> */}
         {/* <Info /> */}
+        <GivenPairs />
       </div>
     );
   }
