@@ -20,8 +20,7 @@ class Pairs extends React.Component {
     stockOneDays: [],
     stockTwoDays: [],
     stockOnePriceRelative: [],
-    stockTwoPriceRelative: [],
-    givenPairs: []
+    stockTwoPriceRelative: []
   };
 
   onInputChange = e => {
@@ -139,15 +138,6 @@ class Pairs extends React.Component {
         />
         <Button name="click for pairs" onClick={this.getDataForPairs} />
         <Button name="correlate" onClick={this.correlate} />
-        {this.state.givenPairs !== 0
-          ? this.state.givenPairs.map(pair => (
-              <GivenPairs
-                correlations={pair.correlations}
-                stockOne={pair.symbolGroup[0]}
-                stockTwo={pair.symbolGroup[1]}
-              />
-            ))
-          : ""}
         <PairsChart
           categories={this.state.stockOneDays}
           dataOne={this.state.stockOnePriceRelative}

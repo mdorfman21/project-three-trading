@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import API from "../Utils/API";
 
 function GivenPairs(props) {
-  return (
+  const [givenPairs, setGivenPairs] = useState([]);
+
+  useEffect(() => {
+    API.getGivenPairs().then(res => {
+      setGivenPairs(res.data);
+    });
+  });
+
+  return givenPairs.map(pair => (
     <div>
       <h6>
-        These pairs, {props.stockOne} and {props.stockTwo} have a correlation of{" "}
-        {props.correlations}
+        These pairs, {pair.symbolGroup[0]} and {pair.symbolGroup[1]} have a
+        correlation of {Number(pair.correlations).toFixed(2)}
       </h6>
     </div>
-  );
+  ));
 }
 
 export default GivenPairs;
