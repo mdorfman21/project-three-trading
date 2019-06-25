@@ -15,8 +15,8 @@ class App extends Component {
         {/* <Pairs />
         <LoginButton />
         <WebScraper /> */}
-        {/* <Info /> */}
-        <GivenPairs />
+        <Info />
+        {/* <GivenPairs /> */}
       </div>
     );
   }
