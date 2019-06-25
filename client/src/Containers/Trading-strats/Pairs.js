@@ -6,6 +6,8 @@ import API from "../../Utils/API";
 import { promises } from "fs";
 import PairsChart from "../../components/Highcharts";
 import SingleChart from "../../components/SingleChart";
+import SpreadChart from "../../components/SpreadChart";
+import GivenPairs from "../../components/GivenPairs";
 
 class Pairs extends React.Component {
   state = {
@@ -112,6 +114,14 @@ class Pairs extends React.Component {
     }
   };
 
+  componentDidMount() {
+    console.log(this.state);
+    API.getGivenPairs().then(res => {
+      console.log("looking for this!!!!", res.data);
+      this.setState({ ...this.state, givenPairs: res.data });
+    });
+  }
+
   render() {
     console.log("CURRENT RENDER STATE DEBUG:", this.state);
     return (
@@ -134,6 +144,13 @@ class Pairs extends React.Component {
           dataTwo={this.state.stockTwoPriceRelative}
           stockOne={this.state.stockOne}
           stockTwo={this.state.stockTwo}
+        />
+        <SpreadChart
+          categories={this.state.stockOneDays}
+          dataOne={this.state.stockOneStats}
+          dataTwo={this.state.stockTwoStats}
+          stockOne={this.state.stockOne}
+          stockTwo={this.state.stocktwo}
         />
         <SingleChart
           categories={this.state.stockOneDays}
