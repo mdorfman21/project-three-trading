@@ -11,5 +11,9 @@ export default {
 
   getStockStats: function(symbol) {
     return axios.get(`/info/${symbol}`);
+  },
+
+  getGivenPairs: function() {
+    return axios.get("/given/pairs");
   }
 };
