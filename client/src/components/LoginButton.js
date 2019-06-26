@@ -18,9 +18,9 @@ class LoginButton extends Component {
     let button;
 
     if (isAuthenticated) {
-      button = <button onClick={logout}>Logout</button>;
+      button = <button type="button" class="btn btn btn-outline-light" onClick={logout}>Logout</button>;
     } else {
-      button = <button onClick={login}>Login</button>;
+      button = <button type="button" class="btn btn btn-outline-light" onClick={login}>Login</button>;
     }
 
     return <div>{button}</div>;
