@@ -45,12 +45,14 @@ export const makeMainRoutes = () => {
             </div>
           </Container>
         </nav>
-        <Route path="/" exact component={App} />
-        <Route path="/callback" component={Callback} />
-        <Route path="/secret" component={Secret} />
-        <Route exact path="/pairs" component={Pairs} />
-        <Route exact path="/given/pairs" component={GivenPairs} />
-        <Route exact path="/info" component={Info} />
+        <Switch>
+          <Route path="/" exact component={App} />
+          <Route path="/callback" component={Callback} />
+          <Route path="/secret" component={Secret} />
+          <Route exact path="/pairs" component={Pairs} />
+          <Route exact path="/given/pairs" component={GivenPairs} />
+          <Route exact path="/info" component={Info} />
+        </Switch>
       </div>
     </Router>
   );

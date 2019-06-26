@@ -3,11 +3,10 @@ import Correlate from "../../Utils/correlation_function";
 import Form from "../../components/Form";
 import Button from "../../components/Button";
 import API from "../../Utils/API";
-import { promises } from "fs";
 import PairsChart from "../../components/Highcharts";
 import SingleChart from "../../components/SingleChart";
 import SpreadChart from "../../components/SpreadChart";
-import GivenPairs from "../../components/GivenPairs";
+import { Container, Row, Col } from "react-bootstrap/";
 
 class Pairs extends React.Component {
   state = {
@@ -108,28 +107,55 @@ class Pairs extends React.Component {
         this.state.stockTwoPriceRelative
       );
       console.log(correlation);
-      this.setState({ ...this.state, correlation: correlation });
+      this.setState({
+        ...this.state,
+        correlation: Number(correlation).toFixed(2)
+      });
     } else {
       console.log("cant correlate when dates dont match");
     }
   };
 
   render() {
-    console.log("CURRENT RENDER STATE DEBUG:", this.state);
     return (
-      <div>
-        <Form
-          name="stockOne"
-          placeholder="Stock One"
-          onChange={this.onInputChange}
-        />
-        <Form
-          name="stockTwo"
-          placeholder="Stock Two"
-          onChange={this.onInputChange}
-        />
-        <Button name="click for pairs" onClick={this.getDataForPairs} />
-        <Button name="correlate" onClick={this.correlate} />
+      <Container>
+        <Row className="justify-content-center">
+          <Col md="justify-content-center">
+            <Form
+              name="stockOne"
+              placeholder="Stock Ticker One"
+              onChange={this.onInputChange}
+            />
+            <Form
+              name="stockTwo"
+              placeholder="Stock Ticker Two"
+              onChange={this.onInputChange}
+            />
+          </Col>
+        </Row>
+        <Row className="justify-content-center">
+          <Col md="justify-content-center">
+            <Button name="Click For Pairs" onClick={this.getDataForPairs} />
+          </Col>
+        </Row>
+        <Row className="justify-content-center">
+          <Col md="justify-content-center">
+            <Button name="Correlate" onClick={this.correlate} />
+          </Col>
+        </Row>
+        <br />
+        <Row className="justify-content-center">
+          <Col md="justify-content-center">
+            {this.state.correlation !== 0 ? (
+              <h6>
+                Correlation coefficient between {this.state.stockOne} and{" "}
+                {this.state.stockTwo} is {this.state.correlation}
+              </h6>
+            ) : (
+              ""
+            )}
+          </Col>
+        </Row>
         <PairsChart
           categories={this.state.stockOneDays}
           dataOne={this.state.stockOnePriceRelative}
@@ -154,15 +180,8 @@ class Pairs extends React.Component {
           dataOne={this.state.stockTwoStats}
           stockOne={this.state.stockTwo}
         />
-        {this.state.correlation !== 0 ? (
-          <h4>
-            Correlation coefficient between {this.state.stockOne} and{" "}
-            {this.state.stockTwo} is {this.state.correlation}
-          </h4>
-        ) : (
-          ""
-        )}
-      </div>
+        );
+      </Container>
     );
   }
 }

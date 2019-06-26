@@ -11,6 +11,7 @@ class HomePage extends Component {
   render() {
     return (
       <div>
+        <Nav />
         <Row>
           <Col size="lg-12">
             <Jumbotron>
