@@ -1,9 +1,9 @@
 import React from "react";
 import LoginButton from "../../components/LoginButton";
+import Button from "../../components/Button";
 import { Container } from "../../components/Grid";
 
-
-function Nav() {
+function Nav(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
       <Container>
