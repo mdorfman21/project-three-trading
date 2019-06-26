@@ -1,5 +1,6 @@
 import React from "react";
 import LoginButton from "../../components/LoginButton";
+import Button from "../../components/Button";
 import { Container } from "../../components/Grid";
 
 function Nav() {
