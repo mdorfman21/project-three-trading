@@ -11,6 +11,7 @@ import Button from "../components/Button";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import LoginButton from "../components/LoginButton";
 import { Container } from "../components/Grid";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export const makeMainRoutes = () => {
   return (
@@ -18,22 +19,30 @@ export const makeMainRoutes = () => {
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-success">
           <Container>
+            <img
+              src="https://github.com/mdorfman21/project-three-trading/blob/profile/client/src/media/logonav.png?raw=true"
+              class="mr-2"
+              height="30px"
+              width="50px"
+            />
             <a className="navbar-brand" href="/">
-              Modo
+              MODO
             </a>
-            <LoginButton />
-            <Link to="/">
-              <Button name="Home" />
-            </Link>
-            <Link to="/pairs">
-              <Button name="Pairs" />
-            </Link>
-            <Link to="/given/pairs">
-              <Button name="Given Pairs" />
-            </Link>
-            <Link to="/info">
-              <Button name="Stock Info" />
-            </Link>
+            <div class="btn-group ml-auto">
+              <LoginButton />
+              <Link to="/">
+                <Button name="Home" />
+              </Link>
+              <Link to="/pairs">
+                <Button name="Pairs" />
+              </Link>
+              <Link to="/given/pairs">
+                <Button name="Given Pairs" />
+              </Link>
+              <Link to="/info">
+                <Button name="Stock Info" />
+              </Link>
+            </div>
           </Container>
         </nav>
         <Switch>
