@@ -3,32 +3,36 @@ import Button from "../../components/Button";
 import Form from "../../components/Form";
 import API from "../../Utils/API";
 import StockInfo from "../../components/StockInfo";
+import StockInfoChart from "../../components/StockInfoChart";
 
 class Info extends React.Component {
   state = {
     search: "",
     statsArray: { stats: [] },
-    symbol: "",
-    id: "",
-    days: 10
+    stockStatsArray: [],
+    stockDays: [],
+    days: 200
   };
 
   getStockInfo = () => {
-    console.log(this.state);
     const stockQuery = {
       symbol: this.state.search,
       days: this.state.days
     };
     API.getStockInfo(stockQuery).then(res => {
       console.log(res);
+      const response = res.data.stats;
+      const stats = response.map(day => day.dayClose);
+      console.log(stats);
+
+      const daysArray = response.map(day => day.timestamp);
+
       this.setState({
         ...this.state,
-        statsArray: res.data.stats,
-        symbol: res.data.symbol,
-        id: res.data._id
+        stockInfoArray: stats,
+        stockDays: daysArray
       });
     });
-    console.log(this.state);
   };
 
   getStockStats = () => {
@@ -48,13 +52,17 @@ class Info extends React.Component {
 
   render() {
     const statsArray = this.state.statsArray;
-    console.log(this.state);
+
     return (
       <div>
         <Form name="search" onChange={this.updateSearch} />
-        <Form name="days" onChange={this.updateSearch} />
         <Button name="check me" onClick={this.getStockInfo} />
         <Button name="stock stats scraper" onClick={this.getStockStats} />
+        <StockInfoChart
+          categories={this.state.stockDays}
+          dataOne={this.state.stockInfoArray}
+          stockOne={this.state.search}
+        />
 
         {statsArray.stats.length > 0
           ? statsArray.stats.map(stat => (
