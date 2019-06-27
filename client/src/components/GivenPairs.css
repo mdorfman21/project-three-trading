@@ -1,0 +1,14 @@
+td {
+  margin: 4rem;
+  text-align: center;
+  border-bottom: 0.15rem solid;
+}
+
+th {
+  padding: 0.5rem;
+  border-bottom: 0.25rem solid;
+}
+
+tr {
+  border: 0.15rem solid;
+}
