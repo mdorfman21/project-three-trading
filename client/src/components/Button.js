@@ -5,7 +5,7 @@ function Button(props) {
     <div>
       <button
         type="button"
-        class="btn btn-outline-light"
+        class={props.className}
         name={props.name}
         onClick={props.onClick}
       >

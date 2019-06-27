@@ -31,16 +31,16 @@ export const makeMainRoutes = () => {
             <div class="btn-group ml-auto">
               <LoginButton />
               <Link to="/">
-                <Button name="Home" />
+                <Button name="Home" className="btn btn-outline-light" />
               </Link>
               <Link to="/pairs">
-                <Button name="Pairs" />
+                <Button name="Pairs" className="btn btn-outline-light" />
               </Link>
               <Link to="/given/pairs">
-                <Button name="Given Pairs" />
+                <Button name="Given Pairs" className="btn btn-outline-light" />
               </Link>
               <Link to="/info">
-                <Button name="Stock Info" />
+                <Button name="Stock Info" className="btn btn-outline-light" />
               </Link>
             </div>
           </Container>
