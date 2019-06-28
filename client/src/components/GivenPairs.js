@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../Utils/API";
-import { Container, Row, Col, Table } from "react-bootstrap/";
+import { Container, Row, Col } from "react-bootstrap/";
+import Table from "react-bootstrap/Table";
 import "./GivenPairs.css";
 
 function GivenPairs() {
@@ -26,25 +27,35 @@ function GivenPairs() {
 
   return (
     <Container>
-      <Table striped bordered hover />
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Ticker One</th>
-          <th>Ticker Two</th>
-          <th>Correlation Coeffecient</th>
-        </tr>
-      </thead>
-      <tbody>
-        {givenPairs.map((pair, index) => (
-          <tr>
-            <td>{index + 1}</td>
-            <td>{pair.symbolGroup[0]}</td>
-            <td>{pair.symbolGroup[1]}</td>
-            <td>{Number(pair.correlations).toFixed(2)}</td>
-          </tr>
-        ))}
-      </tbody>
+      <br />
+      <Row>
+        <Col>
+          <h1 className="font-title">Get Started With These Pairs</h1>
+        </Col>
+      </Row>
+      <Row>
+        <Col className="justify-content-center">
+          <Table striped bordered />
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ticker One</th>
+              <th>Ticker Two</th>
+              <th>Correlation Coeffecient</th>
+            </tr>
+          </thead>
+          <tbody>
+            {givenPairs.map((pair, index) => (
+              <tr>
+                <td>{index + 1}</td>
+                <td>{pair.symbolGroup[0]}</td>
+                <td>{pair.symbolGroup[1]}</td>
+                <td>{Number(pair.correlations).toFixed(2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Col>
+      </Row>
     </Container>
   );
 }

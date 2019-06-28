@@ -121,6 +121,12 @@ class Pairs extends React.Component {
     return (
       <Container>
         <br />
+        <Row>
+          <Col>
+            <h1 className="font-title">Pairs Trading Strategy</h1>
+          </Col>
+        </Row>
+        <br />
         <Row className="justify-content-center">
           <Col md="justify-content-center">
             <Form
@@ -140,7 +146,7 @@ class Pairs extends React.Component {
             <Button
               name="Click For Pairs"
               onClick={this.getDataForPairs}
-              className="btn btn-outline-primary"
+              className="btn btn-success"
             />
           </Col>
         </Row>
@@ -149,7 +155,7 @@ class Pairs extends React.Component {
             <Button
               name="Correlate"
               onClick={this.correlate}
-              className="btn btn-outline-secondary"
+              className="btn btn-success"
             />
           </Col>
         </Row>

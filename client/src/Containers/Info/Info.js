@@ -52,11 +52,23 @@ class Info extends React.Component {
     });
   };
 
+  //58
   render() {
     const statsArray = this.state.statsArray;
+    const optionOne = statsArray.stats.slice(0, -43);
+    const optionTwo = statsArray.stats.slice(15, -28);
+    const optionThree = statsArray.stats.slice(30, -13);
+    const optionFour = statsArray.stats.slice(45);
 
     return (
       <Container>
+        <br />
+        <Row>
+          <Col>
+            <h1 className="font-title">Single Stock Info</h1>
+          </Col>
+        </Row>
+        <br />
         <Row>
           <Col className="formButtons">
             <Form
@@ -71,7 +83,7 @@ class Info extends React.Component {
             <Button
               name="Bollinger Bands"
               onClick={this.getStockInfo}
-              className="btn btn-outline-primary"
+              className="btn btn-success"
             />
           </Col>
         </Row>
@@ -80,7 +92,7 @@ class Info extends React.Component {
             <Button
               name="Stock Statistics"
               onClick={this.getStockStats}
-              className="btn btn-outline-secondary"
+              className="btn btn-success"
             />
           </Col>
         </Row>
@@ -123,7 +135,52 @@ class Info extends React.Component {
           <Col>
             <div className="stockInfoDiv">
               {statsArray.stats.length > 0
-                ? statsArray.stats.map(stat => (
+                ? optionOne.map((stat, index) => (
+                    <span className="stockInfoSpan">
+                      <StockInfo
+                        name={stat.name}
+                        value={stat.value}
+                        key={stat.name}
+                      />
+                    </span>
+                  ))
+                : ""}
+            </div>
+          </Col>
+          <Col>
+            <div className="stockInfoDiv">
+              {statsArray.stats.length > 0
+                ? optionTwo.map((stat, index) => (
+                    <span className="stockInfoSpan">
+                      <StockInfo
+                        name={stat.name}
+                        value={stat.value}
+                        key={stat.name}
+                      />
+                    </span>
+                  ))
+                : ""}
+            </div>
+          </Col>
+          <Col>
+            <div className="stockInfoDiv">
+              {statsArray.stats.length > 0
+                ? optionThree.map((stat, index) => (
+                    <span className="stockInfoSpan">
+                      <StockInfo
+                        name={stat.name}
+                        value={stat.value}
+                        key={stat.name}
+                      />
+                    </span>
+                  ))
+                : ""}
+            </div>
+          </Col>
+          <Col>
+            <div className="stockInfoDiv">
+              {statsArray.stats.length > 0
+                ? optionFour.map((stat, index) => (
                     <span className="stockInfoSpan">
                       <StockInfo
                         name={stat.name}
