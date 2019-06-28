@@ -2156,47 +2156,47 @@ function getStockInfo(passedSymbol, res) {
 
 
 
-let counter = 0;
-const intervalVar = setInterval(() => 
-{   
-    if (counter < russell.length) {
-        getStockInfo(russell[counter]);
+// let counter = 0;
+// const intervalVar = setInterval(() => 
+// {   
+//     if (counter < russell.length) {
+//         getStockInfo(russell[counter]);
         
-        counter++
-    } else {
-        clearInterval(intervalVar);
-    }
-   }, 1000)
+//         counter++
+//     } else {
+//         clearInterval(intervalVar);
+//     }
+//    }, 1000)
     
-// givenPairsData.find().then((dbStock) => {
-//     const testArray = dbStock.map(obj => {
-//       const stats = obj.stats.map(day => {
-//         return day.dayClose;
-//         });
-//         return { symbol: obj.symbol, stats: stats }
-//     });
+givenPairsData.find().then((dbStock) => {
+    const testArray = dbStock.map(obj => {
+      const stats = obj.stats.map(day => {
+        return day.dayClose;
+        });
+        return { symbol: obj.symbol, stats: stats }
+    });
    
-//     //last done (350, -1610) go to 400 -1560
-//     testArray.slice(2000).forEach(stock => {
-//         if (stock.stats.length > 0) {
-//             testArray.forEach(otherStock => {
-//                 // console.log("[DEBUG] computing correlation for ", stock.symbol, otherStock.symbol);
-//                 if (otherStock.stats.length > 0) {
-//                     let correlation = correlationObject.correlate(stock.stats, otherStock.stats);
-//                     // console.log("[DEBUG] about to create a given pair", correlation);
-//                     givenPairs.create({ symbolGroup: [stock.symbol, otherStock.symbol], correlations: correlation }, function(err, res) {
-//                         console.log("err: " + err);
-//                         console.log(res, 'completed');
-//                     });
-//                 };
+    //last done (350, -1610) go to 400 -1560
+    testArray.forEach(stock => {
+        if (stock.stats.length > 0) {
+            testArray.forEach(otherStock => {
+                // console.log("[DEBUG] computing correlation for ", stock.symbol, otherStock.symbol);
+                if (otherStock.stats.length > 0) {
+                    let correlation = correlationObject.correlate(stock.stats, otherStock.stats);
+                    // console.log("[DEBUG] about to create a given pair", correlation);
+                    givenPairs.create({ symbolGroup: [stock.symbol, otherStock.symbol], correlations: correlation }, function(err, res) {
+                        console.log("err: " + err);
+                        console.log(res, 'completed');
+                    });
+                };
                 
             
-//         })
-//         } 
+        })
+        } 
        
-//     })
+    })
 
-// })
+})
         
     
   
