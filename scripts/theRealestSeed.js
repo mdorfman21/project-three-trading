@@ -2177,7 +2177,7 @@ givenPairsData.find().then((dbStock) => {
     });
    
     //last done (350, -1610) go to 400 -1560
-    testArray.slice(0, -1960).forEach(stock => {
+    testArray.slice(0, -1990).forEach(stock => {
         if (stock.stats.length > 0) {
             testArray.forEach(otherStock => {
                 // console.log("[DEBUG] computing correlation for ", stock.symbol, otherStock.symbol);
