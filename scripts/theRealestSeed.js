@@ -7,8 +7,8 @@ const moment = require("moment");
 moment().format();
 const mongoose = require('mongoose');
 
-const MONGOD_URI = process.env.MONGOD_URI || "mongodb://localhost/pairs";
-mongoose.connect(MONGOD_URI, {
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/pairs";
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true
 });
 
