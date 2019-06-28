@@ -2185,7 +2185,7 @@ givenPairsData.find().then((dbStock) => {
                 // console.log("[DEBUG] computing correlation for ", stock.symbol, otherStock.symbol);
                 if (otherStock.stats.length > 0) {
                     let correlation = correlationObject.correlate(stock.stats, otherStock.stats);
-                    // console.log("[DEBUG] about to create a given pair", correlation);
+                    console.log("[DEBUG] about to create a given pair", correlation);
                     givenPairs.create({ symbolGroup: [stock.symbol, otherStock.symbol], correlations: correlation }, function(err, res) {
                         console.log("err: " + err);
                         console.log(res, 'completed');
