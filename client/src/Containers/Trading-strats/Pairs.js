@@ -205,7 +205,7 @@ class Pairs extends React.Component {
                 The below charts show the prices of the two securities. The
                 upper and lower bollinger bands are representations of two
                 standard deviations up and down from the moving average.
-                Usually, the price osiclates in between these bands, when it
+                Usually, the price oscilates in between these bands, when it
                 breaks these bands and then continues in the same direction it
                 usually means a breakout or shortfall.
               </p>
