@@ -16,7 +16,6 @@ export default class Secret extends Component {
   render() {
     return (
       <div style={style}>
-        <Nav />
         Secret area
         <br />
         Jump back to <a href="/">home</a>

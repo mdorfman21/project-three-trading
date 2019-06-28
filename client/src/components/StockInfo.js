@@ -1,13 +1,11 @@
 import React from "react";
 
-
 function StockInfo(props) {
-
   return (
     <span>
-      <h4>
+      <h6>
         {props.name} : {props.value}
-      </h4>
+      </h6>
     </span>
   );
 }

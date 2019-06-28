@@ -1,9 +1,6 @@
 .formButtons {
   display: inline-flex;
-  margin-left: 30%;
-  margin-right: 30%;
-  margin-top: 3em;
-  margin-bottom: 3em;
+  justify-content: center;
 }
 
 .stockInfoDiv {
@@ -20,4 +17,9 @@
   width: 50%;
   float: left;
   margin-left: 8em;
+}
+
+.font {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 1.25rem;
 }

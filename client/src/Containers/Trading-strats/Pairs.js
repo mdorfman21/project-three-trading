@@ -168,7 +168,7 @@ class Pairs extends React.Component {
         </Row>
         <Row>
           <Col>
-            <p>
+            <p className="font">
               Below is the chart that is plotting how the relative prices of the
               two securities move. This is to show how whether the correlated
               prices are moving away from each other.
@@ -184,7 +184,7 @@ class Pairs extends React.Component {
         </Row>
         <Row>
           <Col>
-            <p>
+            <p className="font">
               Below is the chart that is showing the movement between the spread
               of the two securities' prices. This will show you that the prices
               are either moving apart or closer together. This gives you a
@@ -202,7 +202,7 @@ class Pairs extends React.Component {
         <Row>
           <Row>
             <Col>
-              <p>
+              <p className="font">
                 The below charts show the prices of the two securities. The
                 upper and lower bollinger bands are representations of two
                 standard deviations up and down from the moving average.
@@ -210,7 +210,7 @@ class Pairs extends React.Component {
                 breaks these bands and then continues in the same direction it
                 usually means a breakout or shortfall.
               </p>
-              <p>
+              <p className="font">
                 The strategy is when the highly correlated securities' prices go
                 in different directions but don't break the bollinger band on
                 either side and start going back to the their moving average,
