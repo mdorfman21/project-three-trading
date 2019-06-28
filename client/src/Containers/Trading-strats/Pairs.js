@@ -120,6 +120,7 @@ class Pairs extends React.Component {
   render() {
     return (
       <Container>
+        <br />
         <Row className="justify-content-center">
           <Col md="justify-content-center">
             <Form
