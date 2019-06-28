@@ -2175,7 +2175,7 @@ givenPairsData.find().then((dbStock) => {
         });
         return { symbol: obj.symbol, stats: stats }
     });
-   
+    console.log(testArray);
     //last done (350, -1610) go to 400 -1560
     testArray.slice(0, -1990).forEach(stock => {
         if (stock.stats.length > 0) {
