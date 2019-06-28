@@ -8,10 +8,7 @@ export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: "dev-5l542vbb.auth0.com",
     clientID: "gMR2p1ERgmU3aFpRWf4i07kFhp3ROUw4",
-    redirectUri:
-      "https://modo-investments.herokuapp.com/callback" ||
-      "http://localhost:3000/callback",
-
+    redirectUri: "https://modo-investments.herokuapp.com/callback",
     // audience: "https://dev-5l542vbb.auth0.com/userinfo",
     responseType: "token id_token",
     scope: "openid profile"
