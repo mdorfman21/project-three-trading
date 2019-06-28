@@ -4,6 +4,7 @@ import Form from "../../components/Form";
 import API from "../../Utils/API";
 import StockInfo from "../../components/StockInfo";
 import StockInfoChart from "../../components/StockInfoChart";
+import "./Info.css";
 
 class Info extends React.Component {
   state = {
@@ -55,26 +56,31 @@ class Info extends React.Component {
 
     return (
       <div>
-        <Form name="search" onChange={this.updateSearch} />
-        <Button name="check me" onClick={this.getStockInfo} />
-        <Button name="stock stats scraper" onClick={this.getStockStats} />
-        <StockInfoChart
-          categories={this.state.stockDays}
-          dataOne={this.state.stockInfoArray}
-          stockOne={this.state.search}
-        />
-
-        {statsArray.stats.length > 0
-          ? statsArray.stats.map(stat => (
-              <span>
-                <StockInfo
-                  name={stat.name}
-                  value={stat.value}
-                  key={stat.name}
-                />
-              </span>
-            ))
-          : ""}
+        <div className="formButtons">
+          <Form name="search" onChange={this.updateSearch} />
+          <Button name="check me" onClick={this.getStockInfo} />
+          <Button name="stock stats scraper" onClick={this.getStockStats} />
+        </div>
+        <div>
+          <StockInfoChart
+            categories={this.state.stockDays}
+            dataOne={this.state.stockInfoArray}
+            stockOne={this.state.search}
+          />
+        </div>
+        <div  className="stockInfoDiv">
+          {statsArray.stats.length > 0
+            ? statsArray.stats.map(stat => (
+                <span className="stockInfoSpan">
+                  <StockInfo
+                    name={stat.name}
+                    value={stat.value}
+                    key={stat.name}
+                  />
+                </span>
+              ))
+            : ""}
+        </div>
       </div>
     );
   }
