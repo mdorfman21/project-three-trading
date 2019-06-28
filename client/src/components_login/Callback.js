@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Auth from "../Utils/Auth";
+import Secret from "./Secret";
 
 export default class Callback extends Component {
   componentDidMount() {
@@ -7,6 +8,6 @@ export default class Callback extends Component {
     auth.handleAuthentication();
   }
   render() {
-    return <div>loading</div>;
+    return <Secret />;
   }
 }
