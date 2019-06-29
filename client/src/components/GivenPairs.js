@@ -3,6 +3,8 @@ import API from "../Utils/API";
 import { Container, Row, Col } from "react-bootstrap/";
 import Table from "react-bootstrap/Table";
 import "./GivenPairs.css";
+import Footer from "../components/Footer";
+
 
 function GivenPairs() {
   const [givenPairs, setGivenPairs] = useState([
@@ -27,6 +29,7 @@ function GivenPairs() {
   // });
 
   return (
+    <div>
     <Container>
       <br />
       <Row>
@@ -58,6 +61,9 @@ function GivenPairs() {
         </Col>
       </Row>
     </Container>
+    <br></br>
+      <Footer />
+      </div>
   );
 }
 

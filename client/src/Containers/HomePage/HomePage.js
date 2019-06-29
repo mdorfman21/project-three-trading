@@ -56,7 +56,7 @@ class HomePage extends Component {
           </Row>
         </Container>
         <Footer />
-        <LoginButton name="check me" onClick={this.getStockInfo} />
+        {/* <LoginButton name="check me" onClick={this.getStockInfo} /> */}
       </div>
     );
   }
