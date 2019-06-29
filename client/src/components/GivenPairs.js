@@ -18,6 +18,7 @@ function GivenPairs() {
     { correlations: 0.96, symbolGroup: ["CBPX", "SUP"] }
   ]);
 
+  //why doesnt this work?
   // useEffect(() => {
   //   API.getGivenPairs().then(res => {
   //     setGivenPairs(res.data);
