@@ -3,9 +3,9 @@ import Button from "../../components/Button";
 import LoginButton from "../../components/LoginButton";
 import Jumbotron from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
-import Footer from "../../components/Footer";
 import { Col, Row, Container } from "../../components/Grid";
 import TradingViewWidget from "react-tradingview-widget";
+import Footer from "../../components/Footer";
 
 class HomePage extends Component {
   render() {
