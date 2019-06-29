@@ -60,15 +60,15 @@ export default {
         array[index]
       ];
       const mean = arrayOfTen.reduce(Correlate.getSum) / 20;
-      console.log("mean:", mean);
+      // console.log("mean:", mean);
       const standardDeviationArray = arrayOfTen.map(price => {
         return Math.pow(price - mean, 2);
       });
 
-      console.log("sigma array:", standardDeviationArray);
+      // console.log("sigma array:", standardDeviationArray);
       const standardDeviation =
         standardDeviationArray.reduce(Correlate.getSum) / 20;
-      console.log("sigma:", standardDeviation);
+      // console.log("sigma:", standardDeviation);
       return Math.pow(standardDeviation, 0.5);
     }
   },

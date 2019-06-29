@@ -2168,87 +2168,87 @@ function getStockInfo(passedSymbol, res) {
 //     }
 //    }, 1000)
     
-// givenPairsData.find().then((dbStock) => {
-//     const testArray = dbStock.map(obj => {
-//       const stats = obj.stats.map(day => {
-//         return day.dayClose;
-//         });
-//         return { symbol: obj.symbol, stats: stats }
-//     });
-//     console.log(testArray);
-//     //last done (350, -1610) go to 400 -1560
-//     testArray.slice(0, -1990).forEach(stock => {
-//         if (stock.stats.length > 0) {
-//           console.log(stock);
-//             testArray.forEach(otherStock => {
-//               console.log(otherStock);
-//                 // console.log("[DEBUG] computing correlation for ", stock.symbol, otherStock.symbol);
-//                 if (otherStock.stats.length > 0) {
-//                     let correlation = correlationObject.correlate(stock.stats, otherStock.stats);
-//                     console.log("[DEBUG] about to create a given pair", correlation);
-//                     givenPairs.create({ symbolGroup: [stock.symbol, otherStock.symbol], correlations: correlation }, function(err, res) {
-//                         console.log("err: " + err);
-//                         console.log(res, 'completed');
-//                     });
-//                 };
-                
-            
-//         })
-//         } 
-       
-//     })
-
-// }).catch(err => {
-//   console.log(`not completedd error [DEBUG]`,err);
-// })
-
-async function main() {
-
-  // const dbStock = await givenPairsData.find()
-  // // then((dbStock) => `{
-  //   const testArray = dbStock.map(obj => {
-  //     const stats = obj.stats.map(day => {
-  //       return day.dayClose;
-  //       });
-  //       return { symbol: obj.symbol, stats: stats }
-  //   });
-  try {
-    const dbStock = await givenPairsData.find()
-  // then((dbStock) => `{
+givenPairsData.find().then((dbStock) => {
     const testArray = dbStock.map(obj => {
       const stats = obj.stats.map(day => {
         return day.dayClose;
         });
         return { symbol: obj.symbol, stats: stats }
     });
-    console.log(testArray)
-    testArray.slice(0, -1970).forEach(stock => {
-      console.log((stock.stats.length > 0))
-      if (stock.stats.length > 0) {
-        console.log(stock);
-          testArray.forEach(otherStock => {
-            console.log(otherStock);
-              // console.log("[DEBUG] computing correlation for ", stock.symbol, otherStock.symbol);
-              if (otherStock.stats.length > 0) {
-                  let correlation = correlationObject.correlate(stock.stats, otherStock.stats);
-                  console.log("[DEBUG] about to create a given pair", correlation);
-                  givenPairs.create({ symbolGroup: [stock.symbol, otherStock.symbol], correlations: correlation }, function(err, res) {
-                      console.log("err: " + err);
-                      console.log(res, 'completed');
-                  });
-              };
+    console.log(testArray);
+    //last done (350, -1610) go to 400 -1560
+    testArray.slice(0, -1990).forEach(stock => {
+        if (stock.stats.length > 0) {
+          console.log(stock);
+            testArray.forEach(otherStock => {
+              console.log(otherStock);
+                // console.log("[DEBUG] computing correlation for ", stock.symbol, otherStock.symbol);
+                if (otherStock.stats.length > 0) {
+                    let correlation = correlationObject.correlate(stock.stats, otherStock.stats);
+                    console.log("[DEBUG] about to create a given pair", correlation);
+                    givenPairs.create({ symbolGroup: [stock.symbol, otherStock.symbol], correlations: correlation }, function(err, res) {
+                        console.log("err: " + err);
+                        console.log(res, 'completed');
+                    });
+                };
+                
+            
+        })
+        } 
+       
+    })});
+
+// }).catch(err => {
+//   console.log(`not completedd error [DEBUG]`,err);
+// })
+
+// async function main() {
+
+//   // const dbStock = await givenPairsData.find()
+//   // // then((dbStock) => `{
+//   //   const testArray = dbStock.map(obj => {
+//   //     const stats = obj.stats.map(day => {
+//   //       return day.dayClose;
+//   //       });
+//   //       return { symbol: obj.symbol, stats: stats }
+//   //   });
+//   try {
+//     const dbStock = await givenPairsData.find()
+//   // then((dbStock) => `{
+//     const testArray = dbStock.map(obj => {
+//       const stats = obj.stats.map(day => {
+//         return day.dayClose;
+//         });
+//         return { symbol: obj.symbol, stats: stats }
+//     });
+//     console.log(testArray)
+//     testArray.slice(0, -1970).forEach(stock => {
+//       console.log((stock.stats.length > 0))
+//       if (stock.stats.length > 0) {
+//         console.log(stock);
+//           testArray.forEach(otherStock => {
+//             console.log(otherStock);
+//               // console.log("[DEBUG] computing correlation for ", stock.symbol, otherStock.symbol);
+//               if (otherStock.stats.length > 0) {
+//                   let correlation = correlationObject.correlate(stock.stats, otherStock.stats);
+//                   console.log("[DEBUG] about to create a given pair", correlation);
+//                   givenPairs.create({ symbolGroup: [stock.symbol, otherStock.symbol], correlations: correlation }, function(err, res) {
+//                       console.log("err: " + err);
+//                       console.log(res, 'completed');
+//                   });
+//               };
               
           
-      })
-      } 
+//       })
+//       } 
      
-  })
-  } catch(err) {
-    console.log(`not completedd error [DEBUG]`,err);
-  }
-}
+//   })
+//   } catch(err) {
+//     console.log(`not completedd error [DEBUG]`,err);
+//   }
+// }
         
-main();
+// main();
     
   
 

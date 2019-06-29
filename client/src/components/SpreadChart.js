@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import Highcharts from "highcharts";
+import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import _ from "lodash";
 import MovingAverage from "../Utils/MovingAverage";
@@ -58,9 +58,10 @@ class SpreadChart extends React.Component {
         spreadOneData,
         spreadTwoData
       );
+      console.log(`[DEBUG A PROBLEM]`, spreadDataArray);
       const series = [
         ...this.state.chartOptions.series,
-        { data: spreadDataArray, name: "spread relations" }
+        { data: spreadDataArray, label: "Spread Relation" }
       ];
       const xAxis = { categories: this.props.categories };
       const newChartOptions = { ...chartOptions, series, xAxis };
@@ -82,7 +83,11 @@ class SpreadChart extends React.Component {
 
     return (
       <div>
-        <HighchartsReact highcharts={Highcharts} options={chartOptions} />
+        <HighchartsReact
+          highcharts={Highcharts}
+          options={chartOptions}
+          constructorType="stockChart"
+        />
       </div>
     );
   }
