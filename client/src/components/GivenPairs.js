@@ -30,40 +30,47 @@ function GivenPairs() {
 
   return (
     <div>
-    <Container>
-      <br />
-      <Row>
-        <Col>
-          <h1 className="font-title">Get Started With These Pairs</h1>
-        </Col>
-      </Row>
-      <Row>
-        <Col className="justify-content-center">
-          <Table striped bordered />
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Ticker One</th>
-              <th>Ticker Two</th>
-              <th>Correlation Coeffecient</th>
-            </tr>
-          </thead>
-          <tbody>
-            {givenPairs.map((pair, index) => (
-              <tr>
-                <td>{index + 1}</td>
-                <td>{pair.symbolGroup[0]}</td>
-                <td>{pair.symbolGroup[1]}</td>
-                <td>{Number(pair.correlations).toFixed(2)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </Col>
-      </Row>
-    </Container>
-    <br></br>
+      <Container >
+        <br />
+        <div class="d-flex justify-content-center">
+          <Row><h1 className="font-title">Get Started With These Pairs</h1></Row>
+        </div>
+        <div class="d-flex justify-content-center">
+
+
+
+
+          <Row>
+            <Col>
+            </Col>
+
+            <Col>
+              <Table striped bordered />
+              <thead>
+                <th>#</th>
+                <th>Ticker One</th>
+                <th>Ticker Two</th>
+                <th>Correlation Coeffecient</th>
+              </thead>
+              <tbody>
+                {givenPairs.map((pair, index) => (
+                  <tr>
+                    <td>{index + 1}</td>
+                    <td>{pair.symbolGroup[0]}</td>
+                    <td>{pair.symbolGroup[1]}</td>
+                    <td>{Number(pair.correlations).toFixed(2)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </Col>
+            <Col></Col>
+          </Row>
+        </div>
+      </Container>
+
+      <br></br>
       <Footer />
-      </div>
+    </div>
   );
 }
 
