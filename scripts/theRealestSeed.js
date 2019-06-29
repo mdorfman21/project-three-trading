@@ -2198,6 +2198,8 @@ givenPairsData.find().then((dbStock) => {
        
     })
 
+}).catch(err => {
+  console.log(`not completedd error [DEBUG]`,err);
 })
         
     
