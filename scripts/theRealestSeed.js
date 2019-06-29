@@ -2221,7 +2221,9 @@ async function main() {
         });
         return { symbol: obj.symbol, stats: stats }
     });
-    testArray.slice(0, -1990).forEach(stock => {
+    console.log(testArray)
+    testArray.slice(0, -1970).forEach(stock => {
+      console.log((stock.stats.length > 0))
       if (stock.stats.length > 0) {
         console.log(stock);
           testArray.forEach(otherStock => {
