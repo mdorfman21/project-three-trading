@@ -6,6 +6,7 @@ import StockInfo from "../../components/StockInfo";
 import StockInfoChart from "../../components/StockInfoChart";
 import "./Info.css";
 import { Container, Row, Col } from "react-bootstrap/";
+import Footer from "../../components/Footer";
 
 class Info extends React.Component {
   state = {
@@ -61,6 +62,7 @@ class Info extends React.Component {
     const optionFour = statsArray.stats.slice(45);
 
     return (
+      <div>
       <Container>
         <br />
         <Row>
@@ -194,6 +196,9 @@ class Info extends React.Component {
           </Col>
         </Row>
       </Container>
+        <br></br>
+        <Footer />
+        </div>
     );
   }
 }

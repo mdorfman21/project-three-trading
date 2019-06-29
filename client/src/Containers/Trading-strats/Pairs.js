@@ -8,6 +8,7 @@ import SingleChart from "../../components/SingleChart";
 import SpreadChart from "../../components/SpreadChart";
 import { Container, Row, Col } from "react-bootstrap/";
 import "./Pairs.css";
+import Footer from "../../components/Footer";
 
 class Pairs extends React.Component {
   state = {
@@ -119,6 +120,7 @@ class Pairs extends React.Component {
 
   render() {
     return (
+      <div>
       <Container>
         <br />
         <Row>
@@ -242,6 +244,9 @@ class Pairs extends React.Component {
           </Col>
         </Row>
       </Container>
+        <br></br>
+      <Footer />
+      </div>
     );
   }
 }

@@ -3,9 +3,9 @@ import Button from "../../components/Button";
 import LoginButton from "../../components/LoginButton";
 import Jumbotron from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
-import Footer from "../../components/Footer";
 import { Col, Row, Container } from "../../components/Grid";
 import TradingViewWidget from "react-tradingview-widget";
+import Footer from "../../components/Footer";
 
 class HomePage extends Component {
   render() {
@@ -56,7 +56,7 @@ class HomePage extends Component {
           </Row>
         </Container>
         <Footer />
-        <LoginButton name="check me" onClick={this.getStockInfo} />
+        {/* <LoginButton name="check me" onClick={this.getStockInfo} /> */}
       </div>
     );
   }
