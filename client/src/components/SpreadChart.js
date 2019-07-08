@@ -14,6 +14,9 @@ class SpreadChart extends React.Component {
       xAxis: {
         categories: this.props.categories
       },
+      rangeSelector: {
+        enabled: false
+      },
       series: [{ data: [], label: "" }, { data: [], label: "" }],
       plotOptions: {
         series: {
@@ -60,7 +63,8 @@ class SpreadChart extends React.Component {
       );
       console.log(`[DEBUG A PROBLEM]`, spreadDataArray);
       const series = [
-        ...this.state.chartOptions.series,
+        { data: [], label: "" },
+        { data: [], label: "" },
         { data: spreadDataArray, label: "Spread Relation" }
       ];
       const xAxis = { categories: this.props.categories };
@@ -85,8 +89,8 @@ class SpreadChart extends React.Component {
       <div>
         <HighchartsReact
           highcharts={Highcharts}
-          options={chartOptions}
           constructorType="stockChart"
+          options={chartOptions}
         />
       </div>
     );

@@ -21,7 +21,9 @@ class Pairs extends React.Component {
     stockOneDays: [],
     stockTwoDays: [],
     stockOnePriceRelative: [],
-    stockTwoPriceRelative: []
+    stockTwoPriceRelative: [],
+    stockOneTest: [],
+    stockTwoTest: []
   };
 
   onInputChange = e => {
@@ -50,6 +52,16 @@ class Pairs extends React.Component {
         API.getStockInfo(stockQueryOne).then(res => {
           console.log("stock one response", res.data);
           const response = res.data.stats;
+          const testArray = response.map(day => {
+            return [
+              day.timestamp,
+              day.dayOpen,
+              day.dayHigh,
+              day.dayLow,
+              day.dayClose
+            ];
+          });
+          console.log("THIS IS THE TEST ARRAY FOR STOCKCHARTS", testArray);
           const stats = response.map(day => day.dayClose);
           console.log("stock one mapped over prices", stats);
           const priceRelative = stats.map((price, index) => {
@@ -62,7 +74,8 @@ class Pairs extends React.Component {
             ...this.state,
             stockOneStats: stats,
             stockOneDays: daysArray,
-            stockOnePriceRelative: priceRelative
+            stockOnePriceRelative: priceRelative,
+            stockOneTest: testArray
           });
         })
       );
@@ -72,6 +85,15 @@ class Pairs extends React.Component {
         API.getStockInfo(stockQueryTwo).then(res => {
           console.log(res.data);
           const response = res.data.stats;
+          const testArray = response.map(day => {
+            return [
+              day.timestamp,
+              day.dayOpen,
+              day.dayHigh,
+              day.dayLow,
+              day.dayClose
+            ];
+          });
           const stats = response.map(day => day.dayClose);
           console.log(stats);
           const priceRelative = stats.map((price, index) => {
@@ -84,7 +106,8 @@ class Pairs extends React.Component {
             ...this.state,
             stockTwoStats: stats,
             stockTwoDays: daysArray,
-            stockTwoPriceRelative: priceRelative
+            stockTwoPriceRelative: priceRelative,
+            stockTwoTest: testArray
           });
         })
       );
@@ -118,134 +141,139 @@ class Pairs extends React.Component {
     }
   };
 
+  // unix day, open, high, low, close
+
+  toTestChart = () => {};
+
   render() {
     return (
       <div>
-      <Container>
-        <br />
-        <Row>
-          <Col>
-            <h1 className="font-title">Pairs Trading Strategy</h1>
-          </Col>
-        </Row>
-        <br />
-        <Row className="justify-content-center">
-          <Col md="justify-content-center">
-            <Form
-              name="stockOne"
-              placeholder="Stock Ticker One"
-              onChange={this.onInputChange}
-            />
-            <Form
-              name="stockTwo"
-              placeholder="Stock Ticker Two"
-              onChange={this.onInputChange}
-            />
-          </Col>
-        </Row>
-        <Row className="justify-content-center">
-          <Col md="justify-content-center">
-            <Button
-              name="Click For Pairs"
-              onClick={this.getDataForPairs}
-              className="btn btn-success"
-            />
-          </Col>
-        </Row>
-        <Row className="justify-content-center">
-          <Col md="justify-content-center">
-            <Button
-              name="Correlate"
-              onClick={this.correlate}
-              className="btn btn-success"
-            />
-          </Col>
-        </Row>
-        <br />
-        <Row className="justify-content-center">
-          <Col md="justify-content-center">
-            {this.state.correlation !== 0 ? (
-              <h6>
-                Correlation coefficient between {this.state.stockOne} and{" "}
-                {this.state.stockTwo} is {this.state.correlation}
-              </h6>
-            ) : (
-              ""
-            )}
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <p className="font">
-              Below is the chart that is plotting how the relative prices of the
-              two securities move. This is to show how whether the correlated
-              prices are moving away from each other.
-            </p>
-            <PairsChart
-              categories={this.state.stockOneDays}
-              dataOne={this.state.stockOnePriceRelative}
-              dataTwo={this.state.stockTwoPriceRelative}
-              stockOne={this.state.stockOne}
-              stockTwo={this.state.stockTwo}
-            />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <p className="font">
-              Below is the chart that is showing the movement between the spread
-              of the two securities' prices. This will show you that the prices
-              are either moving apart or closer together. This gives you a
-              visual of what you are looking for in the above chart.
-            </p>
-            <SpreadChart
-              categories={this.state.stockOneDays}
-              dataOne={this.state.stockOneStats}
-              dataTwo={this.state.stockTwoStats}
-              stockOne={this.state.stockOne}
-              stockTwo={this.state.stocktwo}
-            />
-          </Col>
-        </Row>
-        <Row>
+        <Container>
+          <br />
+          <Row>
+            <Col>
+              <h1 className="font-title">Pairs Trading Strategy</h1>
+            </Col>
+          </Row>
+          <br />
+          <Row className="justify-content-center">
+            <Col md="justify-content-center">
+              <Form
+                name="stockOne"
+                placeholder="Stock Ticker One"
+                onChange={this.onInputChange}
+              />
+              <Form
+                name="stockTwo"
+                placeholder="Stock Ticker Two"
+                onChange={this.onInputChange}
+              />
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col md="justify-content-center">
+              <Button
+                name="Click For Pairs"
+                onClick={this.getDataForPairs}
+                className="btn btn-success"
+              />
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col md="justify-content-center">
+              <Button
+                name="Correlate"
+                onClick={this.correlate}
+                className="btn btn-success"
+              />
+            </Col>
+          </Row>
+          <br />
+          <Row className="justify-content-center">
+            <Col md="justify-content-center">
+              {this.state.correlation !== 0 ? (
+                <h6>
+                  Correlation coefficient between {this.state.stockOne} and{" "}
+                  {this.state.stockTwo} is {this.state.correlation}
+                </h6>
+              ) : (
+                ""
+              )}
+            </Col>
+          </Row>
           <Row>
             <Col>
               <p className="font">
-                The below charts show the prices of the two securities. The
-                upper and lower bollinger bands are representations of two
-                standard deviations up and down from the moving average.
-                Usually, the price oscilates in between these bands, when it
-                breaks these bands and then continues in the same direction it
-                usually means a breakout or shortfall.
+                Below is the chart that is plotting how the relative prices of
+                the two securities move. This is to show how whether the
+                correlated prices are moving away from each other.
               </p>
-              <p className="font">
-                The strategy is when the highly correlated securities' prices go
-                in different directions but don't break the bollinger band on
-                either side and start going back to the their moving average,
-                you buy the under-valued security and short the over-valued
-                security. This will provide a win both ways when the securities
-                fall back into tandem.{" "}
-              </p>
+              <PairsChart
+                categories={this.state.stockOneDays}
+                dataOne={this.state.stockOnePriceRelative}
+                dataTwo={this.state.stockTwoPriceRelative}
+                stockOne={this.state.stockOne}
+                stockTwo={this.state.stockTwo}
+              />
             </Col>
           </Row>
-          <Col>
-            <SingleChart
-              categories={this.state.stockOneDays}
-              dataOne={this.state.stockOneStats}
-              stockOne={this.state.stockOne}
-            />
-          </Col>
-          <Col>
-            <SingleChart
-              categories={this.state.stockTwoDays}
-              dataOne={this.state.stockTwoStats}
-              stockOne={this.state.stockTwo}
-            />
-          </Col>
-        </Row>
-      </Container>
-        <br></br>
-      <Footer />
+          <Row>
+            <Col>
+              <p className="font">
+                Below is the chart that is showing the movement between the
+                spread of the two securities' prices. This will show you that
+                the prices are either moving apart or closer together. This
+                gives you a visual of what you are looking for in the above
+                chart.
+              </p>
+              <SpreadChart
+                categories={this.state.stockOneDays}
+                dataOne={this.state.stockOneStats}
+                dataTwo={this.state.stockTwoStats}
+                stockOne={this.state.stockOne}
+                stockTwo={this.state.stocktwo}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Row>
+              <Col>
+                <p className="font">
+                  The below charts show the prices of the two securities. The
+                  upper and lower bollinger bands are representations of two
+                  standard deviations up and down from the moving average.
+                  Usually, the price oscilates in between these bands, when it
+                  breaks these bands and then continues in the same direction it
+                  usually means a breakout or shortfall.
+                </p>
+                <p className="font">
+                  The strategy is when the highly correlated securities' prices
+                  go in different directions but don't break the bollinger band
+                  on either side and start going back to the their moving
+                  average, you buy the under-valued security and short the
+                  over-valued security. This will provide a win both ways when
+                  the securities fall back into tandem.{" "}
+                </p>
+              </Col>
+            </Row>
+            <Col>
+              <SingleChart
+                categories={this.state.stockOneDays}
+                dataOne={this.state.stockOneStats}
+                stockOne={this.state.stockOne}
+              />
+            </Col>
+            <Col>
+              <SingleChart
+                categories={this.state.stockTwoDays}
+                dataOne={this.state.stockTwoStats}
+                stockOne={this.state.stockTwo}
+              />
+            </Col>
+          </Row>
+        </Container>
+        <br />
+        <Footer />
       </div>
     );
   }
