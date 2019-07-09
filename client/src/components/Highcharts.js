@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import Highcharts from "highcharts";
+import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import _ from "lodash";
 
@@ -11,7 +11,14 @@ class PairsChart extends React.Component {
         text: "Price Relative Comparison"
       },
       xAxis: {
+        type: "datetime",
         categories: this.props.categories
+      },
+      rangeSelector: {
+        enabled: false
+      },
+      time: {
+        useUTC: true
       },
       series: [{ data: [], label: "" }, { data: [], label: "" }],
       plotOptions: {
@@ -69,7 +76,11 @@ class PairsChart extends React.Component {
 
     return (
       <div>
-        <HighchartsReact highcharts={Highcharts} options={chartOptions} />
+        <HighchartsReact
+          highcharts={Highcharts}
+          constructorType="stockChart"
+          options={chartOptions}
+        />
       </div>
     );
   }

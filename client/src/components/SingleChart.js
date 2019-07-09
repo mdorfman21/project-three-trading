@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import Highcharts from "highcharts";
+import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import _ from "lodash";
 import Correlate from "../Utils/correlation_function";
@@ -18,8 +18,12 @@ class SingleChart extends React.Component {
       series: [
         { data: [], label: "" },
         { data: [], label: "" },
+        { data: [], label: "" },
         { data: [], label: "" }
       ],
+      rangeSelector: {
+        enabled: false
+      },
       plotOptions: {
         series: {
           point: {
@@ -77,13 +81,19 @@ class SingleChart extends React.Component {
       console.log("array of twenty:", standardDeviationArray);
       console.log("moving average", movingAverage);
       const series = [
-        { data: closingDataArray.slice(170), name: this.props.stockOne },
-        { data: movingAverage.slice(170), name: "20 Day Moving Average" },
-        { data: upperBollinger.slice(170), name: "upper Bollinger Band" },
-        { data: lowerBollinger.slice(170), name: "lower Bollinger Band" }
+        { data: closingDataArray.slice(20), name: this.props.stockOne },
+        { data: movingAverage.slice(20), name: "20 Day Moving Average" },
+        { data: upperBollinger.slice(20), name: "Upper Bollinger Band" },
+        { data: lowerBollinger.slice(20), name: "Lower Bollinger Band" }
       ];
-      const xAxis = { categories: this.props.categories.slice(170) };
-      const newChartOptions = { ...chartOptions, series, xAxis, title };
+      const xAxis = { categories: this.props.categories.slice(20) };
+
+      const newChartOptions = {
+        ...chartOptions,
+        series,
+        xAxis,
+        title
+      };
 
       this.setState({ ...this.state, chartOptions: newChartOptions });
     }
@@ -94,7 +104,11 @@ class SingleChart extends React.Component {
 
     return (
       <div>
-        <HighchartsReact highcharts={Highcharts} options={chartOptions} />
+        <HighchartsReact
+          highcharts={Highcharts}
+          constructorType="stockChart"
+          options={chartOptions}
+        />
       </div>
     );
   }

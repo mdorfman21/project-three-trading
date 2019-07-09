@@ -4,6 +4,7 @@ moment().format();
 const cheerio = require("cheerio");
 const axios = require("axios");
 const stockInfo = require("../models/StockInfo");
+const givenPairs = require("../models/givenPairs");
 
 module.exports = {
   getStockInfo: function(req, res) {
@@ -101,6 +102,13 @@ module.exports = {
         .then(function(dbStock) {
           res.json(dbStock);
         });
+    });
+  },
+
+  getGivenPairs: function(req, res) {
+    givenPairs.find({ correlations: { $gt: 0.95, $lt: 1 } }).then(dbStock => {
+      console.log(dbStock);
+      res.json(dbStock);
     });
   }
 };

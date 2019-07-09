@@ -2,7 +2,7 @@ import React from "react";
 
 function Form(props) {
   return (
-    <div>
+    <div className={props.className}>
       <input
         name={props.name}
         placeholder={props.placeholder}

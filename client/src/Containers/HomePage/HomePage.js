@@ -8,10 +8,12 @@ import TradingViewWidget, { Themes } from "react-tradingview-widget";
 import Footer from "../../components/Footer";
 import "./HomePage.css";
 
+
 class HomePage extends Component {
   render() {
     return (
       <div>
+
         <Row>
           <Col size="lg-12">
             <div className="introBackground">
