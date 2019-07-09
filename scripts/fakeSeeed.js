@@ -68,8 +68,8 @@ givenPairsData.find({ "stats.0": { $exists: true } }).then(dbStock => {
     return { symbol: obj.symbol, stats: stats };
   });
 
-  console.log(testArray.slice(0, -1900));
-  testArray.slice(0, -1900).forEach(stock => {
+  console.log(testArray.slice(350, -1610));
+  testArray.slice(350, -1610).forEach(stock => {
     console.log(stock.stats.length);
     if (stock.stats.length > 0) {
       testArray.forEach(otherStock => {
