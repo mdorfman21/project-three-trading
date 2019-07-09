@@ -5,11 +5,12 @@ font-family: 'Open Sans Condensed', sans-serif;
 */
 
 .introBackground {
-  background-image: url(../../images/introbackground.jpg);
+  /* background-image: url(../../images/introbackground.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: center;
   padding-bottom: 1em;
+  
 }
 .introHeading {
   margin-left: 38%;
