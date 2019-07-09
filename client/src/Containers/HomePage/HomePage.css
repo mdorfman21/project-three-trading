@@ -1,0 +1,134 @@
+/* 
+font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto Slab', serif;
+font-family: 'Open Sans Condensed', sans-serif; 
+*/
+
+.introBackground {
+  background-image: url(../../images/introbackground.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: center;
+  padding-bottom: 1em;
+}
+.introHeading {
+  margin-left: 38%;
+  padding-top: 3em;
+  margin-bottom: 1.5em;
+  color: #fff;
+  font-size: 3em;
+  font-family: 'Open Sans Condensed', sans-serif; 
+}
+.introParagraph {
+  width: 38%;
+  margin-left: 30%;
+  margin-bottom: 3em;
+  text-align: center;
+  color: #fff;
+  font-size: 1.5em;
+  font-family: 'Roboto Slab', serif;
+}
+.introBtn {
+  margin-left: 45%;
+  margin-bottom: 6em;
+}
+.introBtn button {
+  border-radius: 50px;
+  font-weight: 700;
+  background-color: #28a745 ;
+  color: #fff;
+}
+
+.imageInfo {
+  width: 100%;
+}
+.imageInfo img {
+  height: 150px;
+  width: 150px;
+
+}
+
+/* IMAGES, DESCRIPTIONS, LINKS */
+.box {
+  float: left;
+  width: 20%;
+  margin-top: 9em;
+  margin-left: 3.4em;
+  margin-bottom: 8em;
+}
+.box img {
+  margin-left: 3em;
+}
+.box p {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+}
+.box a {
+  text-decoration: none;
+  color: rgb(36, 162, 36);
+  margin-left: 36%;
+  font-family: 'Montserrat', sans-serif;
+}
+.box a:hover {
+  cursor: pointer;
+  color: lightgreen;
+  text-decoration: none;
+}
+
+.marketTracking {
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 1em;
+  font-family: 'Open Sans Condensed', sans-serif; 
+}
+
+
+/* CHARTS */
+.sAndP {
+  margin-top: 2em;
+  margin-bottom: 3.5em;
+  font-family: 'Roboto Slab', serif;
+}
+.dJ {
+  margin-bottom: 3.5em;
+  font-family: 'Roboto Slab', serif;
+}
+.nasdq {
+  margin-bottom: 5em;
+  font-family: 'Roboto Slab', serif;
+}
+
+/* GET STARTED */
+.getStarted {
+  background-color: #5cb85c;
+  min-height: 500px;
+}
+.getStarted h1 {
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom: 1em;
+  color: #fff;
+  font-size: 4em;
+  font-family: 'Abril Fatface', cursive;
+}
+.getStarted p {
+  text-align: center;
+  padding-bottom: 1.5em;
+  color: #fff;
+  font-size: 1.25em;
+  font-family: 'Poiret One', cursive;
+}
+.getStartedBtn {
+  margin-left: 48%;
+  border-radius: 25px;
+}
+.getStartedBtn button {
+  background-color: #fff;
+  border-radius: 50px;
+  font-weight: bold;
+  
+}
+
+
