@@ -68,7 +68,7 @@ givenPairsData.find().then(dbStock => {
     return { symbol: obj.symbol, stats: stats };
   });
 
-  testArray.forEach(stock => {
+  testArray.slice(0, -1900).forEach(stock => {
     console.log(stock.stats.length);
     if (stock.stats.length > 0) {
       testArray.forEach(otherStock => {
