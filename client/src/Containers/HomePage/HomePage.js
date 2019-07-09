@@ -8,12 +8,10 @@ import TradingViewWidget, { Themes } from "react-tradingview-widget";
 import Footer from "../../components/Footer";
 import "./HomePage.css";
 
-
 class HomePage extends Component {
   render() {
     return (
       <div>
-
         <Row>
           <Col size="lg-12">
             <div className="introBackground">
@@ -33,7 +31,7 @@ class HomePage extends Component {
           <Col size="lg-12">
             <div className="imageInfo">
               <div className="box">
-                <img src={require("../../images/investment.png")} />
+                {/* <img src={require("../../images/investment.png")} /> */}
                 <p>
                   Learn how and when to invest in companies you're interested in
                   to add to your portfolio.
@@ -41,23 +39,26 @@ class HomePage extends Component {
                 <a href="#">Investing</a>
               </div>
               <div className="box">
-                <img src={require("../../images/growth.png")} />
+                {/* <img src={require("../../images/growth.png")} /> */}
                 <p>
-                  Learn how to grow your portfolios by studying trends and charts.
+                  Learn how to grow your portfolios by studying trends and
+                  charts.
                 </p>
                 <a href="#">Growth</a>
               </div>
               <div className="box">
-                <img src={require("../../images/revenue.png")} />
+                {/* <img src={require("../../images/revenue.png")} /> */}
                 <p>
-                  Learn how and when to invest and when to short to increase your revenue.
+                  Learn how and when to invest and when to short to increase
+                  your revenue.
                 </p>
                 <a href="#">Revenue</a>
               </div>
               <div className="box">
-                <img src={require("../../images/savings.png")} />
+                {/* <img src={require("../../images/savings.png")} /> */}
                 <p>
-                  Learn how to turn your savings into investments you search and research for yourself.
+                  Learn how to turn your savings into investments you search and
+                  research for yourself.
                 </p>
                 <a href="#">Assets and saving</a>
               </div>
@@ -68,7 +69,7 @@ class HomePage extends Component {
         <h3 className="marketTracking">Market Tracking</h3>
 
         <div className="sAndP">
-        <p>Standard & Poor</p>
+          <p>Standard & Poor</p>
           <TradingViewWidget
             symbol="OANDA:SPX500USD"
             theme={Themes.DARK}
@@ -78,7 +79,7 @@ class HomePage extends Component {
         </div>
 
         <div className="dJ">
-        <p>Dow Jones</p>
+          <p>Dow Jones</p>
           <TradingViewWidget
             symbol="FOREXCOM:DJI"
             theme={Themes.DARK}
@@ -88,7 +89,7 @@ class HomePage extends Component {
         </div>
 
         <div className="nasdq">
-        <p>Nasdaq</p>
+          <p>Nasdaq</p>
           <TradingViewWidget
             symbol="NDAQ"
             theme={Themes.DARK}
@@ -116,4 +117,3 @@ class HomePage extends Component {
 }
 
 export default HomePage;
-
