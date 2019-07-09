@@ -60,7 +60,7 @@ const correlationObject = {
   }
 };
 
-givenPairsData.find().then(dbStock => {
+givenPairsData.find({ "stats.0": { $exists: true } }).then(dbStock => {
   const testArray = dbStock.map(obj => {
     const stats = obj.stats.map(day => {
       return day.dayClose;
@@ -70,7 +70,7 @@ givenPairsData.find().then(dbStock => {
 
   console.log(testArray.slice(0, -1900));
   testArray.slice(0, -1950).forEach(stock => {
-    console.log(stock.stats.CoreMongooseArray.length);
+    console.log(stock.stats.length);
     if (stock.stats.length > 0) {
       testArray.forEach(otherStock => {
         console.log(
