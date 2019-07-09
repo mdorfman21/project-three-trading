@@ -31,7 +31,7 @@ class HomePage extends Component {
           <Col size="lg-12">
             <div className="imageInfo">
               <div className="box">
-                {/* <img src={require("../../images/investment.png")} /> */}
+                <img src={require("../../images/investment.png")} />
                 <p>
                   Learn how and when to invest in companies you're interested in
                   to add to your portfolio.
@@ -39,7 +39,7 @@ class HomePage extends Component {
                 <a href="#">Investing</a>
               </div>
               <div className="box">
-                {/* <img src={require("../../images/growth.png")} /> */}
+                <img src={require("../../images/growth.png")} />
                 <p>
                   Learn how to grow your portfolios by studying trends and
                   charts.
@@ -47,7 +47,7 @@ class HomePage extends Component {
                 <a href="#">Growth</a>
               </div>
               <div className="box">
-                {/* <img src={require("../../images/revenue.png")} /> */}
+                <img src={require("../../images/revenue.png")} />
                 <p>
                   Learn how and when to invest and when to short to increase
                   your revenue.
@@ -55,7 +55,7 @@ class HomePage extends Component {
                 <a href="#">Revenue</a>
               </div>
               <div className="box">
-                {/* <img src={require("../../images/savings.png")} /> */}
+                <img src={require("../../images/savings.png")} />
                 <p>
                   Learn how to turn your savings into investments you search and
                   research for yourself.

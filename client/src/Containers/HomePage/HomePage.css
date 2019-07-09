@@ -5,12 +5,11 @@ font-family: 'Open Sans Condensed', sans-serif;
 */
 
 .introBackground {
-  /* background-image: url(../../images/introbackground.jpg); */
+  background-image: url(../../images/introbackground.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: center;
   padding-bottom: 1em;
-  
 }
 .introHeading {
   margin-left: 38%;
@@ -18,7 +17,7 @@ font-family: 'Open Sans Condensed', sans-serif;
   margin-bottom: 1.5em;
   color: #fff;
   font-size: 3em;
-  font-family: 'Open Sans Condensed', sans-serif; 
+  font-family: "Open Sans Condensed", sans-serif;
 }
 .introParagraph {
   width: 38%;
@@ -27,7 +26,7 @@ font-family: 'Open Sans Condensed', sans-serif;
   text-align: center;
   color: #fff;
   font-size: 1.5em;
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
 }
 .introBtn {
   margin-left: 45%;
@@ -36,7 +35,7 @@ font-family: 'Open Sans Condensed', sans-serif;
 .introBtn button {
   border-radius: 50px;
   font-weight: 700;
-  background-color: #28a745 ;
+  background-color: #28a745;
   color: #fff;
 }
 
@@ -46,7 +45,6 @@ font-family: 'Open Sans Condensed', sans-serif;
 .imageInfo img {
   height: 150px;
   width: 150px;
-
 }
 
 /* IMAGES, DESCRIPTIONS, LINKS */
@@ -64,13 +62,13 @@ font-family: 'Open Sans Condensed', sans-serif;
   margin-top: 3em;
   margin-bottom: 3em;
   text-align: center;
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
 }
 .box a {
   text-decoration: none;
   color: rgb(36, 162, 36);
   margin-left: 36%;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 .box a:hover {
   cursor: pointer;
@@ -82,23 +80,22 @@ font-family: 'Open Sans Condensed', sans-serif;
   font-size: 3em;
   text-align: center;
   margin-bottom: 1em;
-  font-family: 'Open Sans Condensed', sans-serif; 
+  font-family: "Open Sans Condensed", sans-serif;
 }
-
 
 /* CHARTS */
 .sAndP {
   margin-top: 2em;
   margin-bottom: 3.5em;
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
 }
 .dJ {
   margin-bottom: 3.5em;
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
 }
 .nasdq {
   margin-bottom: 5em;
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
 }
 
 /* GET STARTED */
@@ -112,14 +109,14 @@ font-family: 'Open Sans Condensed', sans-serif;
   padding-bottom: 1em;
   color: #fff;
   font-size: 4em;
-  font-family: 'Abril Fatface', cursive;
+  font-family: "Abril Fatface", cursive;
 }
 .getStarted p {
   text-align: center;
   padding-bottom: 1.5em;
   color: #fff;
   font-size: 1.25em;
-  font-family: 'Poiret One', cursive;
+  font-family: "Poiret One", cursive;
 }
 .getStartedBtn {
   margin-left: 48%;
@@ -129,7 +126,4 @@ font-family: 'Open Sans Condensed', sans-serif;
   background-color: #fff;
   border-radius: 50px;
   font-weight: bold;
-  
 }
-
-
