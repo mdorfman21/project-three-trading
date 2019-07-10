@@ -20,7 +20,6 @@
   },
   "dependencies": {
     "@alpacahq/alpaca-trade-api": "^1.0.3",
-    "@auth0/auth0-spa-js": "^1.0.2",
     "axios": "^0.19.0",
     "benchmark": "^2.1.4",
     "bootstrap": "^4.3.1",
