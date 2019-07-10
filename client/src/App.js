@@ -6,11 +6,13 @@ import Pairs from "./Containers/Trading-strats/Pairs";
 import "./App.css";
 import LoginButton from "./components/LoginButton";
 import GivenPairs from "./components/GivenPairs";
+import Nav from "../src/components/Nav"
 
 class App extends Component {
   render() {
     return (
       <div>
+        <Nav />
         <Homepage />
         {/* <Pairs />
         <LoginButton />
