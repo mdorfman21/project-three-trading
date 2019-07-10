@@ -17,7 +17,7 @@ function Nav() {
         <a className="navbar-brand" href="/">
           Modo
         </a>
-        <LoginButton />
+        {/* <LoginButton /> */}
       </Container>
     </nav>
   );
