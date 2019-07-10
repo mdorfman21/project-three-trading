@@ -13,7 +13,6 @@ import LoginButton from "../components/LoginButton";
 import { Container } from "../components/Grid";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
 export const makeMainRoutes = () => {
   return (
     <Router>
@@ -21,20 +20,17 @@ export const makeMainRoutes = () => {
         {/* Navigation bar */}
         <nav className="navbar navbar-expand-lg navbar-dark bg-success">
           <Container>
-
             <form className="form-inline">
-            <a className="navbar-brand" href="/">
-            <img
-              src="https://github.com/mdorfman21/project-three-trading/blob/profile/client/src/media/logonav.png?raw=true"
-              class="mr-2"
-              height="30px"
-              width="50px"
-            />
-            
-              MODO
-            </a>
-            
-              
+              <a className="navbar-brand" href="/">
+                <img
+                  src="https://github.com/mdorfman21/project-three-trading/blob/profile/client/src/media/logonav.png?raw=true"
+                  class="mr-2"
+                  height="30px"
+                  width="50px"
+                />
+                MODO
+              </a>
+
               <Link to="/pairs">
                 <Button name="Pairs" className="btn btn-success" />
               </Link>
@@ -46,8 +42,7 @@ export const makeMainRoutes = () => {
               </Link>
             </form>
             {/* Login Button Component */}
-              <LoginButton />
-            
+            {/* <LoginButton /> */}
           </Container>
         </nav>
         <Switch>
