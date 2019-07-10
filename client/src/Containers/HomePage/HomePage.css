@@ -18,6 +18,7 @@ font-family: 'Open Sans Condensed', sans-serif;
   color: #fff;
   font-size: 3em;
   font-family: "Open Sans Condensed", sans-serif;
+  filter: drop-shadow(0 0 0.75rem green);
 }
 .introParagraph {
   width: 38%;
@@ -27,6 +28,7 @@ font-family: 'Open Sans Condensed', sans-serif;
   color: #fff;
   font-size: 1.5em;
   font-family: "Roboto Slab", serif;
+  filter: drop-shadow(0 0 0.75rem green);
 }
 .introBtn {
   margin-left: 45%;
