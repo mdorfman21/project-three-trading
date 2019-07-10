@@ -104,9 +104,9 @@ class HomePage extends Component {
             Learn how to be financially independent by studying trends. Sign up
             now!
           </p>
-          <div className="getStartedBtn">
+          {/* <div className="getStartedBtn">
             <button>Sign Up</button>
-          </div>
+          </div> */}
         </div>
 
         <Footer />
