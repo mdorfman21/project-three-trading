@@ -1,24 +1,44 @@
-import React from "react";
-import { useAuth0 } from "../react-auth0-wrapper";
+import React, { Component } from "react";
+import Auth from "../Utils/Auth";
 
-const LoginButton = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+const auth = new Auth();
 
-  return (
-    <div>
-      {!isAuthenticated && (
-        <button className="btn btn-light"
-          onClick={() =>
-            loginWithRedirect({})
-          }
-        >
-          Log in
-        </button>
-      )}
+function login() {
+  auth.login();
+}
 
-      {isAuthenticated && <button className="btn btn-danger" onClick={() => logout()}>Log out</button>}
-    </div>
-  );
-};
+function logout() {
+  auth.logout();
+}
+
+class LoginButton extends Component {
+  render() {
+    // return <button onClick={login}>Login</button>;
+    const isAuthenticated = auth.isAuthenticated();
+    let button;
+
+    if (isAuthenticated) {
+      button = <button type="button" class="btn btn btn-outline-light" onClick={logout}>Logout</button>;
+    } else {
+      button = <button type="button" class="btn btn btn-outline-light" onClick={login}>Login</button>;
+    }
+
+    return <div>{button}</div>;
+  }
+  // render() {
+  //   if (isLoggedIn) {
+  //     return <button onClick={logout}>Logout</button>;
+  //   }
+  //   return <button onClick={login}>Login</button>
+  //   <button onClick={login}>Sign Up</button>
+  // }
+
+  // return (
+  //   <div>
+  //     <button onClick={login}>Login</button>
+  //     <button onClick={login}>Sign Up</button>
+  //   </div>
+  // );
+}
 
 export default LoginButton;
