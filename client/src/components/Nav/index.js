@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import App from "../../App";
 import Pairs from "../../Containers/Trading-strats/Pairs";
 import GivenPairs from "../../components/GivenPairs";
-import Info from "../../Containers/Info/Info";    
+import Info from "../../Containers/Info/Info";
 
 function Nav() {
   return (
@@ -16,7 +16,6 @@ function Nav() {
         {/* Navigation bar */}
         <nav className="navbar navbar-expand-lg navbar-dark bg-success">
           <Container>
-
             <form className="form-inline">
               <a className="navbar-brand" href="/">
                 <img
@@ -25,10 +24,8 @@ function Nav() {
                   height="30px"
                   width="50px"
                 />
-
                 MODO
-            </a>
-
+              </a>
 
               <Link to={"/pairs"}>
                 <Button name="Pairs" className="btn btn-success" />
@@ -41,8 +38,7 @@ function Nav() {
               </Link>
             </form>
             {/* Login Button Component */}
-            <LoginButton />
-
+            {/* <LoginButton /> */}
           </Container>
         </nav>
         {/* routes switch necessary for navbar to render other pages */}
@@ -51,9 +47,8 @@ function Nav() {
           <Route exact path="/pairs" component={Pairs} />
           <Route exact path="/given/pairs" component={GivenPairs} />
           <Route exact path="/info" component={Info} />
-        </Switch> 
+        </Switch>
       </div>
-
     </Router>
   );
 }
