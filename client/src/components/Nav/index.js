@@ -4,6 +4,10 @@ import Button from "../../components/Button";
 import { Container } from "../../components/Grid";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import App from "../../App";
+import Pairs from "../../Containers/Trading-strats/Pairs";
+import GivenPairs from "../../components/GivenPairs";
+import Info from "../../Containers/Info/Info";    
 
 function Nav() {
   return (
@@ -41,8 +45,15 @@ function Nav() {
 
           </Container>
         </nav>
-        
+        {/* routes switch necessary for navbar to render other pages */}
+        <Switch>
+          <Route path="/" exact component={App} />
+          <Route exact path="/pairs" component={Pairs} />
+          <Route exact path="/given/pairs" component={GivenPairs} />
+          <Route exact path="/info" component={Info} />
+        </Switch> 
       </div>
+
     </Router>
   );
 }
